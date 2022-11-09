@@ -32,13 +32,14 @@ public class main {
         int n1,n2,caso;
         int[] piezas1,piezas2;
         caso = 0;
-        while ((n = br.readLine()) != " "){
+        while ((n = br.readLine()) != "0 0"){
 
             caso++;
             //Numero de piezas de cada torre para el caso i
             n1 = Integer.parseInt(n.split(" ")[0]);
             n2 = Integer.parseInt(n.split(" ")[1]);
 
+            //Guardar las piezas de cada torre en un vector distinto
             piezas1 = Arrays.stream(br.readLine().split(" "))
                     .mapToInt(Integer::parseInt)
                     .toArray();
