@@ -32,7 +32,7 @@ public class main {
         int n1,n2,caso;
         int[] piezas1,piezas2;
         caso = 0;
-        while ((n = br.readLine()) != "0 0"){
+        while (!(n = br.readLine()).equals("0 0")){
 
             caso++;
             //Numero de piezas de cada torre para el caso i
