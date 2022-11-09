@@ -28,10 +28,31 @@ public class main {
         FileReader fr = getEntrada();
         BufferedReader br = new BufferedReader(fr);
 
-        //Numero de piezas de cada torre para el caso i
-        String[] n = (br.readLine()).split(" ");
+        String n;
+        int n1,n2,caso;
+        int[] piezas1,piezas2;
+        caso = 0;
+        while ((n = br.readLine()) != " "){
 
-        System.out.println(Arrays.toString(n));
+            caso++;
+            //Numero de piezas de cada torre para el caso i
+            n1 = Integer.parseInt(n.split(" ")[0]);
+            n2 = Integer.parseInt(n.split(" ")[1]);
+
+            piezas1 = Arrays.stream(br.readLine().split(" "))
+                    .mapToInt(Integer::parseInt)
+                    .toArray();
+            piezas2 = Arrays.stream(br.readLine().split(" "))
+                    .mapToInt(Integer::parseInt)
+                    .toArray();
+
+            System.out.println("Caso:" + caso);
+            System.out.println(n1 + " " + n2);
+            System.out.println(Arrays.toString(piezas1));
+            System.out.println(Arrays.toString(piezas2));
+
+        }
+
         /*Cerrar el fichero*/
         try{
             if (null != fr) {
