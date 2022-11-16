@@ -56,7 +56,7 @@ public class main {
         for (int j = 0; j<piezas1.length; j++) {
             resultadoIteracion = new int[piezas1.length];
             alturaIteracion = 0;
-            izq = 0;
+            izq = -1;
 
             for (int i = j; i < piezas1.length; i++) {
 
