@@ -13,7 +13,7 @@ public class main {
         FileReader fr = null;
 
         try {
-            fichero = new File("entrada.txt");
+            fichero = new File("entrada 2.txt");
             fr = new FileReader(fichero);
 
 
@@ -41,16 +41,19 @@ public class main {
     pizas1 es la torre con menos piezas
     piezas2 es la torre con más piezas
      */
-    public static int[] resolverCaso(int[] piezas1, int[] piezas2){
+    public static void resolverCaso(int[] piezas1, int[] piezas2, int caso){
         /*
         Vector que almacena la solución. Inicialmente será null para que si no hay piezas comunes se retorne un objeto
         nulo
          */
+        System.out.println("Caso de prueba " + caso);
+
         int[] resultado = null;
         int altura = 0; //Altura de la solución
 
-        int alturaIteracion,izq,aparece;
+        int alturaIteracion,izq,pos1,pos2,distancia1,distancia2;
         int[] resultadoIteracion = null;
+
 
 
         for (int j = 0; j<piezas1.length; j++) {
@@ -60,34 +63,80 @@ public class main {
 
             for (int i = j; i < piezas1.length; i++) {
 
-                aparece = primeraAparicion(piezas1[i], piezas2, izq+1);
-                if (aparece != -1) {
-                    izq = aparece;
-                    System.out.println("NUEVO IZQ: " + izq);
-                    resultadoIteracion[i] = piezas1[i];
-                    alturaIteracion += piezas1[i];
+                pos1 = primeraAparicion(piezas1[i], piezas2, izq+1);
+
+                if (i != piezas1.length-1){
+                    pos2 = primeraAparicion(piezas1[i+1], piezas2, izq+1);
                 }
+                else{
+                    pos2 = -1;
+                }
+
+                System.out.println("POSICIONES: " + pos1 + " "  + pos2);
+                if (pos1 != -1){
+                    //En caso de que la pieza i y la i+1 se encuentren en el subarray de la torre 2
+                    if (pos2 != - 1){
+                        if (pos1 <= pos2) {
+                            izq = pos1;
+                            resultadoIteracion[i] = piezas1[i];
+                            alturaIteracion ++;
+                        }
+                        else {
+                            izq = pos2;
+                            resultadoIteracion[i] = piezas1[i+1];
+                            alturaIteracion ++;
+                            i = i + 1;
+                        }
+                    }
+
+                    //En caso de que la pieza i está en el subarray y la i+1 no
+                    else{
+                        izq = pos1;
+                        resultadoIteracion[i] = piezas1[i];
+                        alturaIteracion ++;
+                    }
+                }
+
 
 
                 /*
                   Al final del bucle si la altura de la iteracion es superior a la de el anterior resultado almacenado,
                   se reemplazará el anterior por el nuevo
-
-
                 */
 
             }
+
             System.out.println("RESULTADO ITERACION: " + Arrays.toString(resultadoIteracion));
-            System.out.println("ALTURA ITERACIÓN: " + alturaIteracion + " ,ALTURA TOTAL: " + altura + '\n');
+            //System.out.println("ALTURA ITERACIÓN: " + alturaIteracion + " ,ALTURA TOTAL: " + altura + '\n');
+
             if (alturaIteracion > altura) {
                 resultado = resultadoIteracion;
                 altura = alturaIteracion;
             }
         }
 
-        System.out.println("RESULTADO: " + Arrays.toString(resultado) +'\n');
-        return resultado;
+
+        /*IMPRIMIR RESULTADO DE CASO
+        System.out.println("Caso de prueba " + caso);
+        if (resultado != null){
+            System.out.println("Número de piezas: " + altura);
+            System.out.print("Solución: ");
+            for (int i = 0; i<resultado.length; i++){
+                if (resultado[i] != 0){
+                    System.out.print(resultado[i] + " ");
+                }
+            }
+        }
+        else {
+            System.out.println("Número de piezas: " + 0);
+            System.out.print("Solución: ");
+        }
+
+        System.out.println('\n');
+        */
+
     }
+
     public static void main(String args[]) throws IOException {
         FileReader fr = getEntrada();
         BufferedReader br = new BufferedReader(fr);
@@ -113,18 +162,13 @@ public class main {
 
 
             if (piezas1.length <= piezas2.length){
-                        resultado = resolverCaso(piezas1,piezas2);
+                resolverCaso(piezas1,piezas2,caso);
             }
             else{
-                resultado = resolverCaso(piezas2,piezas1);
+                resolverCaso(piezas2,piezas1,caso);
             }
 
-            /*
-            System.out.println("Caso:" + caso);
-            System.out.println(n1 + " " + n2);
-            System.out.println(Arrays.toString(piezas1));
-            System.out.println(Arrays.toString(piezas2));
-            */
+
         }
 
         //Cerrar el fichero
