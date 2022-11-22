@@ -46,94 +46,64 @@ public class main {
         Vector que almacena la solución. Inicialmente será null para que si no hay piezas comunes se retorne un objeto
         nulo
          */
-        System.out.println("Caso de prueba " + caso);
 
-        int[] resultado = null;
+        int[] resultado = new int[piezas1.length];
+        int[] distancias = new int[piezas1.length];
         int altura = 0; //Altura de la solución
 
-        int alturaIteracion,izq,pos1,pos2,distancia1,distancia2;
-        int[] resultadoIteracion = null;
+        /*
+        min1: posicion de torre 1 con menor distancia
+        min2: posicion de torre 2 con menor distancia
+         */
+        int izq,pos,min1,min2;
+        izq = -1;
 
 
 
         for (int j = 0; j<piezas1.length; j++) {
-            resultadoIteracion = new int[piezas1.length];
-            alturaIteracion = 0;
-            izq = -1;
+            min2 = 101;
+            min1 = -1;
+
 
             for (int i = j; i < piezas1.length; i++) {
-
-                pos1 = primeraAparicion(piezas1[i], piezas2, izq+1);
-
-                if (i != piezas1.length-1){
-                    pos2 = primeraAparicion(piezas1[i+1], piezas2, izq+1);
-                }
-                else{
-                    pos2 = -1;
-                }
-
-                System.out.println("POSICIONES: " + pos1 + " "  + pos2);
-                if (pos1 != -1){
-                    //En caso de que la pieza i y la i+1 se encuentren en el subarray de la torre 2
-                    if (pos2 != - 1){
-                        if (pos1 <= pos2) {
-                            izq = pos1;
-                            resultadoIteracion[i] = piezas1[i];
-                            alturaIteracion ++;
-                        }
-                        else {
-                            izq = pos2;
-                            resultadoIteracion[i] = piezas1[i+1];
-                            alturaIteracion ++;
-                            i = i + 1;
-                        }
-                    }
-
-                    //En caso de que la pieza i está en el subarray y la i+1 no
-                    else{
-                        izq = pos1;
-                        resultadoIteracion[i] = piezas1[i];
-                        alturaIteracion ++;
+                pos = primeraAparicion(piezas1[i], piezas2, izq+1);
+                //System.out.println("DISTANCIA: " + pos);
+                if (pos < min2){
+                    if (pos != -1){
+                        min1 = i;
+                        min2 = pos;
                     }
                 }
 
-
-
-                /*
-                  Al final del bucle si la altura de la iteracion es superior a la de el anterior resultado almacenado,
-                  se reemplazará el anterior por el nuevo
-                */
-
             }
 
-            System.out.println("RESULTADO ITERACION: " + Arrays.toString(resultadoIteracion));
-            //System.out.println("ALTURA ITERACIÓN: " + alturaIteracion + " ,ALTURA TOTAL: " + altura + '\n');
-
-            if (alturaIteracion > altura) {
-                resultado = resultadoIteracion;
-                altura = alturaIteracion;
+            //System.out.println("VALOR: " + min1);
+            //System.out.println();
+            if (min1 != -1){
+                j = min1;
+                izq = min2;
+                resultado[j] = piezas1[min1];
+                altura ++;
             }
+
+
         }
 
 
-        /*IMPRIMIR RESULTADO DE CASO
+
+        //IMPRIMIR RESULTADO DE CASO
         System.out.println("Caso de prueba " + caso);
-        if (resultado != null){
-            System.out.println("Número de piezas: " + altura);
-            System.out.print("Solución: ");
-            for (int i = 0; i<resultado.length; i++){
-                if (resultado[i] != 0){
-                    System.out.print(resultado[i] + " ");
-                }
+
+        System.out.println("Número de piezas: " + altura);
+        System.out.print("Solución: ");
+        for(int i = 0; i<resultado.length; i++){
+            if (resultado[i] != 0){
+                System.out.print(resultado[i] + " ");
             }
-        }
-        else {
-            System.out.println("Número de piezas: " + 0);
-            System.out.print("Solución: ");
         }
 
         System.out.println('\n');
-        */
+
 
     }
 
