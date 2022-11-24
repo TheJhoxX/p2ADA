@@ -34,7 +34,6 @@ public class main {
                 maximo = maximos[i];
             }
         }
-        System.out.println("MAXIMO: " + maximo);
         return maximo;
     }
 
@@ -46,26 +45,41 @@ public class main {
     public static void resolverCaso(int[] piezas1, int[] piezas2, int caso){
         /*Comienza así para que la fila 0 y la columna 0 sean enteras de 1*/
 
-        int[][] matriz= new int[piezas1.length][piezas2.length];
-        int[] maximos = new int[piezas2.length];
-        int[] relacionados = new int [piezas2.length];
+        int m = piezas1.length;
+        int n = piezas2.length;
+        int[][] matriz= new int[n][m];
+        int[] maximos = new int[n];
+        int[] relacionados = new int [n];
+        int[] aux = new int[n];
 
         int maximo = 0;
 
-        /*Recorro la matriz por columnas*/
-        for (int j = 0; j<piezas1.length; j++){
-            for (int i = 0; i<piezas2.length; i++){
-                System.out.println("I: " + i + " J: " + j);
-                if (piezas1[j] == piezas1[i]){
-                    maximo = buscarMaximo(maximos,i);
 
-                    matriz[j][i] = maximo+1;
-                    actualizarMaximos(maximo+1,maximos,i,relacionados,piezas1[j]);
+        int contador = 0;
+        for (int i = 0; i<m; i++){
+            aux = maximos.clone();
+            for (int j = 0; j<n; j++){
+                System.out.println(piezas1[i]+" " + piezas2[j]);
+                if (piezas1[i] == piezas2[j]){
+                    System.out.println("MAXIMOS: " + Arrays.toString(maximos));
+
+                    maximo = buscarMaximo(maximos,j);
+                    System.out.println(i + " " + j);
+                    System.out.println("MAXIMO: " + maximo);
+                    maximo++;
+                    matriz[j][i] = maximo;
+                    if (maximo > maximos[j]){
+                        aux[j] = maximo;
+                        relacionados[j] = piezas2[j];
+                    }
                 }
             }
+            maximos = aux;
         }
 
-
+        for (int i = 0; i<matriz.length; i++){
+            System.out.println(Arrays.toString(matriz[i]));
+        }
         /*IMPRIMIR RESULTADO DE CASO
         System.out.println("Caso de prueba " + caso);
 
@@ -108,7 +122,7 @@ public class main {
                     .toArray();
 
 
-            if (piezas1.length <= piezas2.length){
+            if (piezas2.length >= piezas1.length){
                 resolverCaso(piezas2,piezas1,caso);
             }
             else{
