@@ -37,12 +37,8 @@ public class main {
         return maximo;
     }
 
-    public static void actualizarMaximos(int maximo, int[] maximos, int posicion, int[] relacionados, int columnaRelacionada){
-        maximos[posicion] = maximo;
-        relacionados[posicion] = columnaRelacionada;
 
-    }
-    public static void resolverCaso(int[] piezas1, int[] piezas2, int caso){
+    public static void resolverCaso(int[] piezas1, int[] piezas2){
         /*Comienza así para que la fila 0 y la columna 0 sean enteras de 1*/
 
         int m = piezas1.length;
@@ -50,27 +46,22 @@ public class main {
         int[][] matriz= new int[n][m];
         int[] maximos = new int[n];
         int[] relacionados = new int [n];
-        int[] aux = new int[n];
+        int[] aux ;
 
-        int maximo = 0;
+        int maximo;
 
 
-        int contador = 0;
         for (int i = 0; i<m; i++){
             aux = maximos.clone();
             for (int j = 0; j<n; j++){
-                System.out.println(piezas1[i]+" " + piezas2[j]);
                 if (piezas1[i] == piezas2[j]){
-                    System.out.println("MAXIMOS: " + Arrays.toString(maximos));
 
                     maximo = buscarMaximo(maximos,j);
-                    System.out.println(i + " " + j);
-                    System.out.println("MAXIMO: " + maximo);
                     maximo++;
                     matriz[j][i] = maximo;
                     if (maximo > maximos[j]){
                         aux[j] = maximo;
-                        relacionados[j] = piezas2[j];
+                        relacionados[j] = j;
                     }
                 }
             }
@@ -80,20 +71,10 @@ public class main {
         for (int i = 0; i<matriz.length; i++){
             System.out.println(Arrays.toString(matriz[i]));
         }
-        /*IMPRIMIR RESULTADO DE CASO
-        System.out.println("Caso de prueba " + caso);
 
-        System.out.println("Número de piezas: " + altura);
-        System.out.print("Solución: ");
-        for(int i = 0; i<resultado.length; i++){
-            if (resultado[i] != 0){
-                System.out.print(resultado[i] + " ");
-            }
-        }
+        System.out.println(Arrays.toString(maximos));
+        System.out.println(Arrays.toString(relacionados));
 
-        System.out.println('\n');
-        */
-        System.out.println();
 
 
     }
@@ -123,10 +104,10 @@ public class main {
 
 
             if (piezas2.length >= piezas1.length){
-                resolverCaso(piezas2,piezas1,caso);
+                resolverCaso(piezas2,piezas1);
             }
             else{
-                resolverCaso(piezas1,piezas2,caso);
+                resolverCaso(piezas1,piezas2);
             }
 
 
