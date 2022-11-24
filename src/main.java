@@ -14,7 +14,7 @@ public class main {
         FileReader fr = null;
 
         try {
-            fichero = new File("entrada.txt");
+            fichero = new File("entrada 2.txt");
             fr = new FileReader(fichero);
 
 
@@ -37,8 +37,12 @@ public class main {
         return maximo;
     }
 
+    public static void actualizarMaximos(int maximo, int[] maximos, int posicion, int[] relacionados, int columnaRelacionada){
+        maximos[posicion] = maximo;
+        relacionados[posicion] = columnaRelacionada;
 
-    public static void resolverCaso(int[] piezas1, int[] piezas2){
+    }
+    public static void resolverCaso(int[] piezas1, int[] piezas2, int caso){
         /*Comienza así para que la fila 0 y la columna 0 sean enteras de 1*/
 
         int m = piezas1.length;
@@ -46,11 +50,13 @@ public class main {
         int[][] matriz= new int[n][m];
         int[] maximos = new int[n];
         int[] relacionados = new int [n];
-        int[] aux ;
+        int[] aux = new int[n];
 
-        int maximo;
+        int maximo = 0;
+        int maximoTotal = 0;
 
 
+        int contador = 0;
         for (int i = 0; i<m; i++){
             aux = maximos.clone();
             for (int j = 0; j<n; j++){
@@ -61,20 +67,33 @@ public class main {
                     matriz[j][i] = maximo;
                     if (maximo > maximos[j]){
                         aux[j] = maximo;
-                        relacionados[j] = j;
+                        relacionados[j] = piezas1[i];
+                    }
+                    if (maximo > maximoTotal){
+                        maximoTotal = maximo;
                     }
                 }
             }
             maximos = aux;
         }
 
-        for (int i = 0; i<matriz.length; i++){
-            System.out.println(Arrays.toString(matriz[i]));
+
+        //IMPRIMIR RESULTADO DE CASO
+        System.out.println("Caso de prueba " + caso);
+
+        System.out.println("Número de piezas: " + maximoTotal);
+
+        /*
+        System.out.print("Solución: ");
+        for(int i = 0; i<resultado.length; i++){
+            if (resultado[i] != 0){
+                System.out.print(resultado[i] + " ");
+            }
         }
 
-        System.out.println(Arrays.toString(maximos));
-        System.out.println(Arrays.toString(relacionados));
-
+        System.out.println('\n');
+        */
+        System.out.println();
 
 
     }
@@ -104,10 +123,10 @@ public class main {
 
 
             if (piezas2.length >= piezas1.length){
-                resolverCaso(piezas2,piezas1);
+                resolverCaso(piezas2,piezas1,caso);
             }
             else{
-                resolverCaso(piezas1,piezas2);
+                resolverCaso(piezas1,piezas2,caso);
             }
 
 
@@ -119,7 +138,7 @@ public class main {
                 fr.close();
             }
         }
-            catch (Exception e2){
+        catch (Exception e2){
             e2.printStackTrace();
         }
 
