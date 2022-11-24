@@ -2,6 +2,7 @@
 Víctor Jorge Sibaja
 Pablo Gutiérrez Martínez
  */
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,7 +14,7 @@ public class main {
         FileReader fr = null;
 
         try {
-            fichero = new File("entrada 2.txt");
+            fichero = new File("entrada.txt");
             fr = new FileReader(fichero);
 
 
@@ -25,73 +26,47 @@ public class main {
         return fr;
     }
 
-    public static int primeraAparicion(int valor, int[] v, int izq){
-        //Por defecto la solución será -1, lo cual indicará que el elemento no está en el rango seleccionado del vector
-        int solucion = -1;
-        for (int i= izq; i<v.length; i++){
-            if (v[i] == valor){
-                return i;
+    public static int buscarMaximo(int[] maximos, int extremoInferior){
+        int maximo = 0;
+
+        for (int i = 0; i<extremoInferior; i++){
+            if (maximos[i] > maximo){
+                maximo = maximos[i];
             }
         }
-        return solucion;
+        System.out.println("MAXIMO: " + maximo);
+        return maximo;
     }
 
-    /*
-    Función que retorna la solución de un caso.
-    pizas1 es la torre con menos piezas
-    piezas2 es la torre con más piezas
-     */
+    public static void actualizarMaximos(int maximo, int[] maximos, int posicion, int[] relacionados, int columnaRelacionada){
+        maximos[posicion] = maximo;
+        relacionados[posicion] = columnaRelacionada;
+
+    }
     public static void resolverCaso(int[] piezas1, int[] piezas2, int caso){
-        /*
-        Vector que almacena la solución. Inicialmente será null para que si no hay piezas comunes se retorne un objeto
-        nulo
-         */
+        /*Comienza así para que la fila 0 y la columna 0 sean enteras de 1*/
 
-        int[] resultado = new int[piezas1.length];
-        int[] distancias = new int[piezas1.length];
-        int altura = 0; //Altura de la solución
+        int[][] matriz= new int[piezas1.length][piezas2.length];
+        int[] maximos = new int[piezas2.length];
+        int[] relacionados = new int [piezas2.length];
 
-        /*
-        min1: posicion de torre 1 con menor distancia
-        min2: posicion de torre 2 con menor distancia
-         */
-        int izq,pos,min1,min2;
-        izq = -1;
+        int maximo = 0;
 
+        /*Recorro la matriz por columnas*/
+        for (int j = 0; j<piezas1.length; j++){
+            for (int i = 0; i<piezas2.length; i++){
+                System.out.println("I: " + i + " J: " + j);
+                if (piezas1[j] == piezas1[i]){
+                    maximo = buscarMaximo(maximos,i);
 
-
-        for (int j = 0; j<piezas1.length; j++) {
-            min2 = 101;
-            min1 = -1;
-
-
-            for (int i = j; i < piezas1.length; i++) {
-                pos = primeraAparicion(piezas1[i], piezas2, izq+1);
-                //System.out.println("DISTANCIA: " + pos);
-                if (pos < min2){
-                    if (pos != -1){
-                        min1 = i;
-                        min2 = pos;
-                    }
+                    matriz[j][i] = maximo+1;
+                    actualizarMaximos(maximo+1,maximos,i,relacionados,piezas1[j]);
                 }
-
             }
-
-            //System.out.println("VALOR: " + min1);
-            //System.out.println();
-            if (min1 != -1){
-                j = min1;
-                izq = min2;
-                resultado[j] = piezas1[min1];
-                altura ++;
-            }
-
-
         }
 
 
-
-        //IMPRIMIR RESULTADO DE CASO
+        /*IMPRIMIR RESULTADO DE CASO
         System.out.println("Caso de prueba " + caso);
 
         System.out.println("Número de piezas: " + altura);
@@ -103,6 +78,8 @@ public class main {
         }
 
         System.out.println('\n');
+        */
+        System.out.println();
 
 
     }
@@ -132,10 +109,10 @@ public class main {
 
 
             if (piezas1.length <= piezas2.length){
-                resolverCaso(piezas1,piezas2,caso);
+                resolverCaso(piezas2,piezas1,caso);
             }
             else{
-                resolverCaso(piezas2,piezas1,caso);
+                resolverCaso(piezas1,piezas2,caso);
             }
 
 
