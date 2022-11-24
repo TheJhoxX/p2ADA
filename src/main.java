@@ -14,7 +14,7 @@ public class main {
         FileReader fr = null;
 
         try {
-            fichero = new File("entrada.txt");
+            fichero = new File("entrada 2.txt");
             fr = new FileReader(fichero);
 
 
@@ -53,37 +53,37 @@ public class main {
         int[] aux = new int[n];
 
         int maximo = 0;
+        int maximoTotal = 0;
 
 
         int contador = 0;
         for (int i = 0; i<m; i++){
             aux = maximos.clone();
             for (int j = 0; j<n; j++){
-                System.out.println(piezas1[i]+" " + piezas2[j]);
                 if (piezas1[i] == piezas2[j]){
-                    System.out.println("MAXIMOS: " + Arrays.toString(maximos));
 
                     maximo = buscarMaximo(maximos,j);
-                    System.out.println(i + " " + j);
-                    System.out.println("MAXIMO: " + maximo);
                     maximo++;
                     matriz[j][i] = maximo;
                     if (maximo > maximos[j]){
                         aux[j] = maximo;
-                        relacionados[j] = piezas2[j];
+                        relacionados[j] = piezas1[i];
+                    }
+                    if (maximo > maximoTotal){
+                        maximoTotal = maximo;
                     }
                 }
             }
             maximos = aux;
         }
 
-        for (int i = 0; i<matriz.length; i++){
-            System.out.println(Arrays.toString(matriz[i]));
-        }
-        /*IMPRIMIR RESULTADO DE CASO
+
+        //IMPRIMIR RESULTADO DE CASO
         System.out.println("Caso de prueba " + caso);
 
-        System.out.println("Número de piezas: " + altura);
+        System.out.println("Número de piezas: " + maximoTotal);
+
+        /*
         System.out.print("Solución: ");
         for(int i = 0; i<resultado.length; i++){
             if (resultado[i] != 0){
