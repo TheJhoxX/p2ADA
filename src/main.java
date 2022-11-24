@@ -15,7 +15,7 @@ public class main {
         FileReader fr = null;
 
         try {
-            fichero = new File("entrada.txt");
+            fichero = new File("entrada 2.txt");
             fr = new FileReader(fichero);
 
 
@@ -76,40 +76,44 @@ public class main {
             maximos = aux;
         }
 
-        solucion=new int[maximoTotal];
-        contador=maximoTotal-1;
-        int auxiliar=n-1;
-        for( int i=m-1; i>=0;i--){
-            for( int j=auxiliar; j>=0;j-- ){
-                if (matriz[j][i]==maximoTotal){
-                    solucion[contador]=piezas1[i];
-                    contador--;
-                    maximoTotal--;
-                    auxiliar=j-1;
+        System.out.println("Caso de prueba " + caso);
+        System.out.println("Número de piezas: " + maximoTotal);
 
+        if (maximoTotal != 0){
+            solucion=new int[maximoTotal];
+            contador=maximoTotal-1;
+            int auxiliar=n-1;
+            for( int i=m-1; i>=0;i--){
+                for( int j=auxiliar; j>=0;j-- ){
+                    if ((matriz[j][i]==maximoTotal) && contador > -1){
+                        solucion[contador]=piezas1[i];
+                        contador--;
+                        maximoTotal--;
+                        auxiliar=j-1;
 
+                        break;
+
+                    }
                 }
             }
         }
-
-        System.out.println(Arrays.toString(solucion));
-
-        //IMPRIMIR RESULTADO DE CASO
-        System.out.println("Caso de prueba " + caso);
-
-        System.out.println("Número de piezas: " + maximoTotal);
-
-        /*
-        System.out.print("Solución: ");
-        for(int i = 0; i<resultado.length; i++){
-            if (resultado[i] != 0){
-                System.out.print(resultado[i] + " ");
-            }
+        else {
+            solucion = null;
         }
 
+
+        //IMPRIMIR RESULTADO DE CASO
+        System.out.print("Solución:");
+        if (solucion != null){
+            for (int i = 0; i<solucion.length; i++){
+                System.out.print(" " + solucion[i]);
+            }
+
+        }
+        else {
+            System.out.print(" ");
+        }
         System.out.println('\n');
-        */
-        System.out.println();
 
 
     }
