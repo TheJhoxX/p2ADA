@@ -138,7 +138,7 @@ public class main {
                 fr.close();
             }
         }
-            catch (Exception e2){
+        catch (Exception e2){
             e2.printStackTrace();
         }
 
