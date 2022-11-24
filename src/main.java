@@ -9,6 +9,7 @@ import java.util.Arrays;
 
 public class main {
 
+
     public static FileReader getEntrada(){
         File fichero = null;
         FileReader fr = null;
