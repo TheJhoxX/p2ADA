@@ -15,7 +15,7 @@ public class main {
         FileReader fr = null;
 
         try {
-            fichero = new File("entrada 2.txt");
+            fichero = new File("entrada.txt");
             fr = new FileReader(fichero);
 
 
@@ -38,11 +38,7 @@ public class main {
         return maximo;
     }
 
-    public static void actualizarMaximos(int maximo, int[] maximos, int posicion, int[] relacionados, int columnaRelacionada){
-        maximos[posicion] = maximo;
-        relacionados[posicion] = columnaRelacionada;
 
-    }
     public static void resolverCaso(int[] piezas1, int[] piezas2, int caso){
         /*Comienza así para que la fila 0 y la columna 0 sean enteras de 1*/
 
@@ -52,12 +48,14 @@ public class main {
         int[] maximos = new int[n];
         int[] relacionados = new int [n];
         int[] aux = new int[n];
+        int[] solucion;
 
-        int maximo = 0;
+
+        int maximo=0;
         int maximoTotal = 0;
 
 
-        int contador = 0;
+        int contador;
         for (int i = 0; i<m; i++){
             aux = maximos.clone();
             for (int j = 0; j<n; j++){
@@ -78,6 +76,23 @@ public class main {
             maximos = aux;
         }
 
+        solucion=new int[maximoTotal];
+        contador=maximoTotal-1;
+        int auxiliar=n-1;
+        for( int i=m-1; i>=0;i--){
+            for( int j=auxiliar; j>=0;j-- ){
+                if (matriz[j][i]==maximoTotal){
+                    solucion[contador]=piezas1[i];
+                    contador--;
+                    maximoTotal--;
+                    auxiliar=j-1;
+
+
+                }
+            }
+        }
+
+        System.out.println(Arrays.toString(solucion));
 
         //IMPRIMIR RESULTADO DE CASO
         System.out.println("Caso de prueba " + caso);
