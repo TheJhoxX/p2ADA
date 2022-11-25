@@ -38,7 +38,9 @@ public class main {
         return maximo;
     }
 
-
+    /*
+    Método que resuelve el caso para las torres que se le pase como parámetros
+     */
     public static void resolverCaso(int[] piezas1, int[] piezas2, int caso){
         /*Comienza así para que la fila 0 y la columna 0 sean enteras de 1*/
 

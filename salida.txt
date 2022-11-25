@@ -1,0 +1,400 @@
+Caso de prueba 1
+Número de piezas: 7
+Solución: 10 10 15 17 6 5 7 
+
+Caso de prueba 2
+Número de piezas: 3
+Solución: 13 11 16 
+
+Caso de prueba 3
+Número de piezas: 2
+Solución: 17 12 
+
+Caso de prueba 4
+Número de piezas: 2
+Solución: 9 7 
+
+Caso de prueba 5
+Número de piezas: 3
+Solución: 12 16 15 
+
+Caso de prueba 6
+Número de piezas: 4
+Solución: 5 15 18 16 
+
+Caso de prueba 7
+Número de piezas: 4
+Solución: 8 16 3 5 
+
+Caso de prueba 8
+Número de piezas: 2
+Solución: 5 11 
+
+Caso de prueba 9
+Número de piezas: 3
+Solución: 5 16 13 
+
+Caso de prueba 10
+Número de piezas: 0
+Solución: 
+
+Caso de prueba 11
+Número de piezas: 5
+Solución: 13 6 2 11 8 
+
+Caso de prueba 12
+Número de piezas: 5
+Solución: 13 19 6 10 7 
+
+Caso de prueba 13
+Número de piezas: 2
+Solución: 2 14 
+
+Caso de prueba 14
+Número de piezas: 8
+Solución: 4 13 17 4 7 3 20 3 
+
+Caso de prueba 15
+Número de piezas: 5
+Solución: 14 16 5 9 4 
+
+Caso de prueba 16
+Número de piezas: 1
+Solución: 9 
+
+Caso de prueba 17
+Número de piezas: 4
+Solución: 6 3 18 19 
+
+Caso de prueba 18
+Número de piezas: 5
+Solución: 10 14 10 1 4 
+
+Caso de prueba 19
+Número de piezas: 1
+Solución: 13 
+
+Caso de prueba 20
+Número de piezas: 2
+Solución: 16 17 
+
+Caso de prueba 21
+Número de piezas: 5
+Solución: 15 12 12 2 11 
+
+Caso de prueba 22
+Número de piezas: 4
+Solución: 19 6 17 11 
+
+Caso de prueba 23
+Número de piezas: 0
+Solución: 
+
+Caso de prueba 24
+Número de piezas: 4
+Solución: 14 4 20 11 
+
+Caso de prueba 25
+Número de piezas: 1
+Solución: 17 
+
+Caso de prueba 26
+Número de piezas: 5
+Solución: 9 4 11 19 9 
+
+Caso de prueba 27
+Número de piezas: 8
+Solución: 12 10 14 6 9 13 15 1 
+
+Caso de prueba 28
+Número de piezas: 7
+Solución: 17 15 10 1 10 2 8 
+
+Caso de prueba 29
+Número de piezas: 8
+Solución: 17 4 3 14 9 15 15 12 
+
+Caso de prueba 30
+Número de piezas: 5
+Solución: 12 6 11 10 19 
+
+Caso de prueba 31
+Número de piezas: 2
+Solución: 13 19 
+
+Caso de prueba 32
+Número de piezas: 2
+Solución: 4 7 
+
+Caso de prueba 33
+Número de piezas: 6
+Solución: 1 15 11 8 10 15 
+
+Caso de prueba 34
+Número de piezas: 3
+Solución: 4 10 10 
+
+Caso de prueba 35
+Número de piezas: 4
+Solución: 4 19 1 8 
+
+Caso de prueba 36
+Número de piezas: 9
+Solución: 10 16 11 12 19 1 9 20 5 
+
+Caso de prueba 37
+Número de piezas: 6
+Solución: 19 1 11 19 18 9 
+
+Caso de prueba 38
+Número de piezas: 0
+Solución: 
+
+Caso de prueba 39
+Número de piezas: 5
+Solución: 13 18 20 10 15 
+
+Caso de prueba 40
+Número de piezas: 1
+Solución: 13 
+
+Caso de prueba 41
+Número de piezas: 10
+Solución: 20 4 4 8 3 12 18 9 9 1 
+
+Caso de prueba 42
+Número de piezas: 6
+Solución: 17 10 10 3 6 17 
+
+Caso de prueba 43
+Número de piezas: 3
+Solución: 9 20 1 
+
+Caso de prueba 44
+Número de piezas: 2
+Solución: 3 3 
+
+Caso de prueba 45
+Número de piezas: 4
+Solución: 14 10 3 19 
+
+Caso de prueba 46
+Número de piezas: 2
+Solución: 1 4 
+
+Caso de prueba 47
+Número de piezas: 3
+Solución: 19 12 3 
+
+Caso de prueba 48
+Número de piezas: 1
+Solución: 2 
+
+Caso de prueba 49
+Número de piezas: 6
+Solución: 6 5 18 8 7 7 
+
+Caso de prueba 50
+Número de piezas: 1
+Solución: 15 
+
+Caso de prueba 51
+Número de piezas: 2
+Solución: 12 17 
+
+Caso de prueba 52
+Número de piezas: 7
+Solución: 16 14 20 6 12 3 8 
+
+Caso de prueba 53
+Número de piezas: 6
+Solución: 7 15 13 15 10 8 
+
+Caso de prueba 54
+Número de piezas: 1
+Solución: 19 
+
+Caso de prueba 55
+Número de piezas: 8
+Solución: 4 10 18 6 20 19 13 15 
+
+Caso de prueba 56
+Número de piezas: 1
+Solución: 16 
+
+Caso de prueba 57
+Número de piezas: 4
+Solución: 2 1 15 17 
+
+Caso de prueba 58
+Número de piezas: 3
+Solución: 13 15 15 
+
+Caso de prueba 59
+Número de piezas: 3
+Solución: 7 9 16 
+
+Caso de prueba 60
+Número de piezas: 2
+Solución: 10 10 
+
+Caso de prueba 61
+Número de piezas: 1
+Solución: 3 
+
+Caso de prueba 62
+Número de piezas: 8
+Solución: 20 12 15 14 13 5 2 9 
+
+Caso de prueba 63
+Número de piezas: 3
+Solución: 7 1 7 
+
+Caso de prueba 64
+Número de piezas: 3
+Solución: 12 8 9 
+
+Caso de prueba 65
+Número de piezas: 5
+Solución: 4 12 19 18 2 
+
+Caso de prueba 66
+Número de piezas: 8
+Solución: 9 2 10 11 2 20 3 15 
+
+Caso de prueba 67
+Número de piezas: 0
+Solución: 
+
+Caso de prueba 68
+Número de piezas: 3
+Solución: 4 10 20 
+
+Caso de prueba 69
+Número de piezas: 2
+Solución: 1 5 
+
+Caso de prueba 70
+Número de piezas: 3
+Solución: 3 9 15 
+
+Caso de prueba 71
+Número de piezas: 8
+Solución: 20 18 11 7 3 20 17 14 
+
+Caso de prueba 72
+Número de piezas: 3
+Solución: 6 17 16 
+
+Caso de prueba 73
+Número de piezas: 6
+Solución: 13 18 19 7 2 8 
+
+Caso de prueba 74
+Número de piezas: 6
+Solución: 6 11 9 5 5 16 
+
+Caso de prueba 75
+Número de piezas: 3
+Solución: 12 19 3 
+
+Caso de prueba 76
+Número de piezas: 5
+Solución: 7 6 2 18 16 
+
+Caso de prueba 77
+Número de piezas: 6
+Solución: 6 12 13 9 18 6 
+
+Caso de prueba 78
+Número de piezas: 7
+Solución: 8 6 11 7 11 9 5 
+
+Caso de prueba 79
+Número de piezas: 4
+Solución: 17 3 15 12 
+
+Caso de prueba 80
+Número de piezas: 4
+Solución: 10 9 5 13 
+
+Caso de prueba 81
+Número de piezas: 4
+Solución: 15 8 2 6 
+
+Caso de prueba 82
+Número de piezas: 2
+Solución: 8 20 
+
+Caso de prueba 83
+Número de piezas: 2
+Solución: 7 18 
+
+Caso de prueba 84
+Número de piezas: 5
+Solución: 8 11 11 10 19 
+
+Caso de prueba 85
+Número de piezas: 4
+Solución: 14 5 5 8 
+
+Caso de prueba 86
+Número de piezas: 1
+Solución: 20 
+
+Caso de prueba 87
+Número de piezas: 7
+Solución: 15 11 6 10 17 7 2 
+
+Caso de prueba 88
+Número de piezas: 1
+Solución: 8 
+
+Caso de prueba 89
+Número de piezas: 3
+Solución: 18 2 8 
+
+Caso de prueba 90
+Número de piezas: 3
+Solución: 1 5 14 
+
+Caso de prueba 91
+Número de piezas: 1
+Solución: 20 
+
+Caso de prueba 92
+Número de piezas: 8
+Solución: 8 9 2 2 9 9 15 18 
+
+Caso de prueba 93
+Número de piezas: 5
+Solución: 14 16 2 13 16 
+
+Caso de prueba 94
+Número de piezas: 4
+Solución: 19 12 8 5 
+
+Caso de prueba 95
+Número de piezas: 4
+Solución: 3 18 3 17 
+
+Caso de prueba 96
+Número de piezas: 6
+Solución: 10 15 1 19 8 10 
+
+Caso de prueba 97
+Número de piezas: 3
+Solución: 9 11 1 
+
+Caso de prueba 98
+Número de piezas: 7
+Solución: 14 20 10 15 14 3 12 
+
+Caso de prueba 99
+Número de piezas: 2
+Solución: 10 13 
+
+Caso de prueba 100
+Número de piezas: 2
+Solución: 18 8 
+
