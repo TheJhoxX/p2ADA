@@ -6,6 +6,7 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Hashtable;
 
 public class main {
 
@@ -54,31 +55,48 @@ public class main {
         int maximo=0;
         int mayorMaximo=0;
 
+        Hashtable<Integer, Integer> tabla = new Hashtable<>();
+
+        /*
+        Permitirá no tener que iterar una columna en caso de que el elemento
+        de piezas 1 no esté en piezas 2
+         */
+        for (int i = 0; i<n; i++){
+            tabla.put(piezas2[i],i);
+        }
+
 
 
         int contador;
         for (int i = 0; i<m; i++){
             aux = maximos.clone();
-            for (int j = 0; j<n; j++){
-                if (piezas1[i] == piezas2[j]){
-                    maximo = buscarMaximo(maximos,j);
-                    maximo++;
-                    matriz[j][i] = maximo;
-                    if (maximo > maximos[j]){
-                        aux[j] = maximo;
-                        relacionados[j] = piezas1[i];
-                    }
+            /*
+            Solo en caso de que el elemento de la torre 1 esté en la torre 2
+            interesará recorrer
+             */
+            if (tabla.containsKey(piezas1[i])){
+                for (int j = 0; j<n; j++){
+                    if (piezas1[i] == piezas2[j]){
+                        maximo = buscarMaximo(maximos,j);
+                        maximo++;
+                        matriz[j][i] = maximo;
+                        if (maximo > maximos[j]){
+                            aux[j] = maximo;
+                            relacionados[j] = piezas1[i];
+                        }
 
-                    if (maximo>mayorMaximo){
-                        mayorMaximo=maximo;
+                        if (maximo>mayorMaximo){
+                            mayorMaximo=maximo;
+                        }
                     }
                 }
+                maximos = aux;
             }
-            maximos = aux;
+
         }
 
         System.out.println("Caso de prueba " + caso);
-        System.out.println("Número de piezas: " + maximo);
+        System.out.println("Número de piezas: " + mayorMaximo);
 
 
         if (mayorMaximo!= 0){
