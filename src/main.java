@@ -49,12 +49,11 @@ public class main {
         int[][] matriz= new int[n][m];
         int[] maximos = new int[n];
         int[] relacionados = new int [n];
-        int[] aux = new int[n];
+        int[] aux;
         int[] solucion;
-
-
         int maximo=0;
-        int maximoTotal = 0;
+        int mayorMaximo=0;
+
 
 
         int contador;
@@ -62,7 +61,6 @@ public class main {
             aux = maximos.clone();
             for (int j = 0; j<n; j++){
                 if (piezas1[i] == piezas2[j]){
-
                     maximo = buscarMaximo(maximos,j);
                     maximo++;
                     matriz[j][i] = maximo;
@@ -70,8 +68,9 @@ public class main {
                         aux[j] = maximo;
                         relacionados[j] = piezas1[i];
                     }
-                    if (maximo > maximoTotal){
-                        maximoTotal = maximo;
+
+                    if (maximo>mayorMaximo){
+                        mayorMaximo=maximo;
                     }
                 }
             }
@@ -79,18 +78,19 @@ public class main {
         }
 
         System.out.println("Caso de prueba " + caso);
-        System.out.println("Número de piezas: " + maximoTotal);
+        System.out.println("Número de piezas: " + maximo);
 
-        if (maximoTotal != 0){
-            solucion=new int[maximoTotal];
-            contador=maximoTotal-1;
+
+        if (mayorMaximo!= 0){
+            solucion=new int[mayorMaximo];
+            contador=mayorMaximo-1;
             int auxiliar=n-1;
             for( int i=m-1; i>=0;i--){
                 for( int j=auxiliar; j>=0;j-- ){
-                    if ((matriz[j][i]==maximoTotal) && contador > -1){
+                    if ((matriz[j][i]==mayorMaximo) && contador > -1){
                         solucion[contador]=piezas1[i];
                         contador--;
-                        maximoTotal--;
+                        mayorMaximo--;
                         auxiliar=j-1;
 
                         break;
@@ -125,15 +125,12 @@ public class main {
         BufferedReader br = new BufferedReader(fr);
 
         String n;
-        int n1,n2,caso;
-        int[] piezas1,piezas2,resultado;
+        int caso;
+        int[] piezas1,piezas2;
         caso = 0;
-        while (!(n = br.readLine()).equals("0 0")){
+        while (!( n = br.readLine()).equals("0 0")){
 
             caso++;
-            //Numero de piezas de cada torre para el caso i
-            n1 = Integer.parseInt(n.split(" ")[0]);
-            n2 = Integer.parseInt(n.split(" ")[1]);
 
             //Guardar las piezas de cada torre en un vector distinto
             piezas1 = Arrays.stream(br.readLine().split(" "))
@@ -143,7 +140,7 @@ public class main {
                     .mapToInt(Integer::parseInt)
                     .toArray();
 
-
+            //Se pasa como primer parametro el vector de piezas que sea mayor
             if (piezas2.length >= piezas1.length){
                 resolverCaso(piezas2,piezas1,caso);
             }
