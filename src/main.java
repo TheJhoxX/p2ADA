@@ -101,18 +101,18 @@ public class main {
 
         if (mayorMaximo!= 0){
             solucion=new int[mayorMaximo];
-            contador=mayorMaximo-1;
+            //Guarda la posición de la columna donde se encontro el ultimo maximo
             int auxiliar=n-1;
             for( int i=m-1; i>=0;i--){
                 for( int j=auxiliar; j>=0;j-- ){
-                    if ((matriz[j][i]==mayorMaximo) && contador > -1){
-                        solucion[contador]=piezas1[i];
-                        contador--;
-                        mayorMaximo--;
-                        auxiliar=j-1;
-
-                        break;
-
+                    if ((matriz[j][i]==mayorMaximo) && mayorMaximo>0){
+                        //Para evitar un OutOfBounds
+                        if (mayorMaximo>0) {
+                            solucion[mayorMaximo - 1] = piezas1[i];
+                            mayorMaximo--;
+                            auxiliar = j - 1;
+                            break;
+                        }
                     }
                 }
             }
