@@ -49,10 +49,9 @@ public class main {
         int n = piezas2.length;
         int[][] matriz= new int[n][m];
         int[] maximos = new int[n];
-        int[] relacionados = new int [n];
         int[] aux;
         int[] solucion;
-        int maximo=0;
+        int maximo;
         int mayorMaximo=0;
 
         Hashtable<Integer, Integer> tabla = new Hashtable<>();
@@ -82,7 +81,6 @@ public class main {
                         matriz[j][i] = maximo;
                         if (maximo > maximos[j]){
                             aux[j] = maximo;
-                            relacionados[j] = piezas1[i];
                         }
 
                         if (maximo>mayorMaximo){
