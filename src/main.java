@@ -102,15 +102,16 @@ public class main {
             //Guarda la posición de la columna donde se encontro el ultimo maximo
             int auxiliar=n-1;
             for( int i=m-1; i>=0;i--){
+                if (mayorMaximo == 0){
+                    break;
+                }
                 for( int j=auxiliar; j>=0;j-- ){
-                    if ((matriz[j][i]==mayorMaximo) && mayorMaximo>0){
-                        //Para evitar un OutOfBounds
-                        if (mayorMaximo>0) {
-                            solucion[mayorMaximo - 1] = piezas1[i];
-                            mayorMaximo--;
-                            auxiliar = j - 1;
-                            break;
-                        }
+                    if (matriz[j][i]==mayorMaximo){
+                        solucion[mayorMaximo - 1] = piezas1[i];
+                        mayorMaximo--;
+                        auxiliar = j - 1;
+                        break;
+
                     }
                 }
             }
