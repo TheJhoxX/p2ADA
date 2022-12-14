@@ -2,21 +2,22 @@
 Víctor Jorge Sibaja
 Pablo Gutiérrez Martínez
  */
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
+
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Hashtable;
 
 public class main {
 
-
-    public static FileReader getEntrada(){
+    /*
+    Método encargado del tratamiento del fichero de casos de prueba
+     */
+    public static FileReader getEntrada(String nombreFichero){
         File fichero = null;
         FileReader fr = null;
 
         try {
-            fichero = new File("entrada 2.txt");
+            fichero = new File(nombreFichero);
             fr = new FileReader(fichero);
 
 
@@ -28,6 +29,9 @@ public class main {
         return fr;
     }
 
+    /*
+    Función que retorna el máximo de un vector desde la posición 0 a la que se pase por parámetro
+     */
     public static int buscarMaximo(int[] maximos, int extremoInferior){
         int maximo = 0;
 
@@ -71,7 +75,7 @@ public class main {
             aux = maximos.clone();
             /*
             Solo en caso de que el elemento de la torre 1 esté en la torre 2
-            interesará recorrer
+            interesará recorrer la torre 2
              */
             if (tabla.containsKey(piezas1[i])){
                 for (int j = 0; j<n; j++){
@@ -137,8 +141,12 @@ public class main {
 
     }
 
+    /*
+    Método encargado de ratamiento de fichero de casos de prueba y paso de parámetros al algoritmo encargado
+    de resolverlos
+     */
     public static void main(String args[]) throws IOException {
-        FileReader fr = getEntrada();
+        FileReader fr = getEntrada("entrada 2.txt");
         BufferedReader br = new BufferedReader(fr);
 
         String n;
